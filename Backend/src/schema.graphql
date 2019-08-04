@@ -1,0 +1,48 @@
+type Query {
+  info: String!
+  studentsList: [Student!]!
+}
+type Mutation {
+  addStudent( name: String!,
+                 class: String!,
+                 age: Int,
+                 roll:String!,
+                 email:String!,
+                 phone: Float,
+                 address: String!): Student!
+  signup(firstName:String!,
+             lastName:String!,
+             email: String!,
+             password:String!,
+             mobileNumber:Float,
+             gender:String!,
+             birthString:String!): AuthPayload
+  login(email: String!, password: String!): AuthPayload
+}
+
+type AuthPayload {
+  token: String
+  teacher: Teacher
+}
+
+type Teacher {
+  id:String!
+  firstName:String!
+  lastName:String!
+  email: String!
+  password:String!
+  mobileNumber:Float
+  gender:String!
+  birthString:String!
+}
+
+type Student {
+  id:String!
+  name: String!
+  class: String!
+  age: Int
+  roll:String!
+  email:String!
+  phone: Float
+  address: String!
+}
